@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نتائج الطلاب - جامعة المنيا</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f4f7fb;
+}
+
+header{
+    background:#005a9e;
+    color:white;
+    padding:20px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.container{
+    width:95%;
+    max-width:900px;
+    margin:20px auto;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+}
+
+input{
+    padding:10px;
+    width:80%;
+    margin:10px 0;
+}
+
+button{
+    padding:10px 20px;
+    background:#005a9e;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:8px;
+    text-align:center;
+}
+
+th{
+    background:#e6f0fa;
+}
+
+.gpa-bar{
+    height:20px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.gpa-fill{
+    height:100%;
+    background:#28a745;
+    width:75%;
+}
+
+.hidden{
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+نتائج الطلاب - جامعة المنيا
+</header>
+
+<div class="container">
+
+<!-- تسجيل الدخول -->
+<div class="card" id="loginCard">
+<h3>تسجيل الدخول</h3>
+<input type="text" id="username" placeholder="اسم المستخدم">
+<input type="password" id="password" placeholder="كلمة المرور">
+<br>
+<button onclick="login()">دخول</button>
+<p id="loginError" style="color:red;"></p>
+</div>
+
+<!-- البحث برقم الجلوس -->
+<div class="card hidden" id="searchCard">
+<h3>استعلام عن النتيجة</h3>
+<input type="text" id="seat" placeholder="ادخل رقم الجلوس">
+<br>
+<button onclick="showResult()">عرض النتيجة</button>
+</div>
+
+<!-- النتيجة -->
+<div class="card hidden" id="resultCard">
+<h3>بيانات الطالب</h3>
+<p><strong>الاسم:</strong> بيشوي سامح</p>
+<p><strong>الكلية:</strong> طب الأسنان</p>
+<p><strong>الفرقة:</strong> الأولى</p>
+
+<table>
+<tr><th>المقرر</th><th>التقدير</th></tr>
+<tr><td>تشريح عام</td><td>D+</td></tr>
+<tr><td>فيسيولوجيا</td><td>C</td></tr>
+<tr><td>ميكروبيولوجي</td><td>B</td></tr>
+</table>
+
+<h4>المعدل التراكمي (GPA): 3.0</h4>
+<div class="gpa-bar">
+<div class="gpa-fill"></div>
+</div>
+
+<br>
+<button onclick="window.print()">طباعة النتيجة PDF</button>
+</div>
+
+</div>
+
+<script>
+
+function login(){
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === "admin" && pass === "1234"){
+        document.getElementById("loginCard").classList.add("hidden");
+        document.getElementById("searchCard").classList.remove("hidden");
+    } else {
+        document.getElementById("loginError").innerText = "بيانات الدخول غير صحيحة";
+    }
+}
+
+function showResult(){
+    let seat = document.getElementById("seat").value;
+
+    if(seat === "2025"){
+        document.getElementById("resultCard").classList.remove("hidden");
+    } else {
+        alert("رقم الجلوس غير صحيح");
+    }
+}
+
+</script>
+
+</body>
+</html>
