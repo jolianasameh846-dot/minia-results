@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>نتائج الطلاب</title>
+<style>
+body { font-family: Arial; text-align:center; margin-top:50px; }
+input { padding:8px; margin:5px; }
+button { padding:8px 15px; }
+#result { margin-top:20px; font-weight:bold; color:green; }
+</style>
+</head>
+<body>
+
+<h1>تسجيل الدخول</h1>
+
+<input type="text" id="username" placeholder="اسم المستخدم"><br>
+<input type="password" id="password" placeholder="كلمة المرور"><br>
+<button onclick="login()">دخول</button>
+
+<div id="result"></div>
+
+<script>
+function login() {
+  var user = document.getElementById("username").value;
+  var pass = document.getElementById("password").value;
+
+  // هنا تكتبي اسم المستخدم وكلمة المرور الصحيحة
+  if(user === "student1" && pass === "1234") {
+    document.getElementById("result").innerHTML = `
+      مرحباً ${user} <br>
+      <h3>النتيجة:</h3>
+      <table border="1" style="margin:auto; text-align:center;">
+        <tr><th>المقرر</th><th>التقدير</th></tr>
+        <tr><td>تشريح عام</td><td>D+</td></tr>
+        <tr><td>فيزيولوجيا</td><td>C</td></tr>
+        <tr><td>ميكروبيولوجي</td><td>B</td></tr>
+      </table>
+    `;
+  } else {
+    document.getElementById("result").innerHTML = "اسم المستخدم أو كلمة المرور غير صحيحة!";
+    document.getElementById("result").style.color = "red";
+  }
+}
+</script>
+
+</body>
+</html>
