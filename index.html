@@ -94,8 +94,8 @@ th{
 <script>
 function login(){
 
-var user = document.getElementById("username").value;
-var pass = document.getElementById("password").value;
+var user = document.getElementById("username").value.trim();
+var pass = document.getElementById("password").value.trim();
 
 if(user === "83436716" && pass === "Sux9504#"){
 
@@ -143,14 +143,14 @@ document.getElementById("content").innerHTML = `
 <div class="semester-title">الأول 2025-2026</div>
 <table>
 <tr><th>المادة</th><th>الساعات</th><th>التقدير</th></tr>
-<tr><td>فيسيولوجيا عامة</td><td>4</td><td>D+</td></tr>
-<tr><td>ميكروبيولوجي</td><td>3</td><td>C+</td></tr>
-<tr><td>باثولوجيا عامة</td><td>5</td><td>D+</td></tr>
-<tr><td>فارماكولوجي</td><td>4</td><td>C+</td></tr>
+<tr><td>فيسيولوجيا عامة</td><td>4</td><td>D</td></tr>
+<tr><td>ميكروبيولوجي</td><td>3</td><td>C</td></tr>
+<tr><td>باثولوجيا عامة</td><td>5</td><td>D</td></tr>
+<tr><td>فارماكولوجي</td><td>4</td><td>C</td></tr>
 <tr><td>تكنولوجيا الاستعاضة الصناعية</td><td>5</td><td>Fr</td></tr>
 </table>
 
-
+`;
 
 }else{
 document.getElementById("error").innerText = "اسم المستخدم أو كلمة المرور غير صحيحة";
