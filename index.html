@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>تسجيل الدخول - نتائج طلاب جامعة المنيا</title>
+<title>نتائج الطلاب</title>
 
 <style>
 body{
@@ -10,21 +10,24 @@ body{
     background:#f2f2f2;
     text-align:center;
     direction:rtl;
-    margin-top:100px;
+    margin:0;
 }
-.box{
+
+.login-box{
     background:white;
     width:300px;
-    margin:auto;
+    margin:120px auto;
     padding:20px;
     border-radius:10px;
     box-shadow:0 0 10px gray;
 }
+
 input{
     width:90%;
     padding:8px;
     margin:8px 0;
 }
+
 button{
     background:#0077cc;
     color:white;
@@ -33,23 +36,58 @@ button{
     width:100%;
     cursor:pointer;
 }
+
 button:hover{
     background:#005fa3;
+}
+
+table{
+    margin:20px auto;
+    border-collapse:collapse;
+    width:90%;
+}
+
+th, td{
+    border:1px solid #ccc;
+    padding:8px;
+}
+
+th{
+    background:#0077cc;
+    color:white;
+}
+
+.info-box{
+    background:white;
+    width:90%;
+    margin:20px auto;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px #ccc;
+    text-align:right;
+}
+
+.semester-title{
+    margin-top:40px;
+    font-size:20px;
+    color:#0077cc;
 }
 </style>
 
 </head>
 <body>
 
-<div class="box">
+<div id="content">
+
+<div class="login-box">
 <h2>تسجيل الدخول</h2>
 
 <input type="text" id="username" placeholder="اسم المستخدم">
 <input type="password" id="password" placeholder="كلمة المرور">
-
 <button onclick="login()">دخول</button>
 
-<p id="message" style="color:red;"></p>
+<p id="error" style="color:red;"></p>
+</div>
 
 </div>
 
@@ -60,20 +98,46 @@ var user = document.getElementById("username").value;
 var pass = document.getElementById("password").value;
 
 if(user === "83436716" && pass === "Sux9504#"){
-    if(user === "83436716" && pass === "Sux9504#"){
-    document.body.innerHTML = `
-    <h1>النتيجة</h1>
-    <h3>مرحباً 83436716</h3>
-    <table border="1" style="margin:auto; direction:rtl;">
-    <tr><th>المادة</th><th>الساعات</th><th>التقدير</th></tr>
-    <tr><td>ميكروبيولوجي</td><td>3</td><td>C</td></tr>
-    <tr><td>فارماكولوجي</td><td>4</td><td>C</td></tr>
-    <tr><td>باتولوجي</td><td>5</td><td>D</td></tr>
-    </table>
-    `;
-}
+
+document.getElementById("content").innerHTML = `
+
+<h1 style="margin-top:30px;">نتيجة الطالب</h1>
+
+<div class="info-box">
+<p><strong>الاسم:</strong> بيشوي سامح حكيم</p>
+<p><strong>الكلية:</strong> كلية طب الأسنان - جامعة المنيا</p>
+<p><strong>الرقم القومي:</strong> 30409152601573</p>
+<p><strong>رقم الجلوس:</strong> 83436716</p>
+</div>
+
+<div class="semester-title">الأول 2024-2025</div>
+<table>
+<tr><th>المادة</th><th>الساعات</th><th>التقدير</th></tr>
+<tr><td>تشريح عام</td><td>4</td><td>Fr</td></tr>
+<tr><td>استولوجيا عامة</td><td>3</td><td>D+</td></tr>
+<tr><td>تشريح وصفي</td><td>6</td><td>F</td></tr>
+<tr><td>فيزيولوجيا عامة</td><td>4</td><td>Fr</td></tr>
+<tr><td>كيمياء</td><td>6</td><td>P</td></tr>
+<tr><td>علم الكمبيوتر</td><td>3</td><td>P</td></tr>
+<tr><td>علم الوراثة</td><td>2</td><td>NP</td></tr>
+<tr><td>اللغة الإنجليزية</td><td>2</td><td>P</td></tr>
+</table>
+
+<div class="semester-title">الثاني 2024-2025</div>
+<table>
+<tr><th>المادة</th><th>الساعات</th><th>التقدير</th></tr>
+<tr><td>الليزر في طب الأسنان</td><td>1</td><td>P</td></tr>
+<tr><td>تشريح عام</td><td>4</td><td>Fr</td></tr>
+<tr><td>فيزيولوجيا عامة</td><td>4</td><td>D+</td></tr>
+<tr><td>استولوجيا عامة</td><td>3</td><td>D+</td></tr>
+<tr><td>كيمياء عضوية</td><td>4</td><td>C+</td></tr>
+<tr><td>أساسيات المواد الحيوية</td><td>4</td><td>F</td></tr>
+</table>
+
+`;
+
 }else{
-    document.getElementById("message").innerText = "اسم المستخدم أو كلمة المرور غير صحيحة";
+document.getElementById("error").innerText = "اسم المستخدم أو كلمة المرور غير صحيحة";
 }
 
 }
