@@ -60,7 +60,18 @@ var user = document.getElementById("username").value;
 var pass = document.getElementById("password").value;
 
 if(user === "83436716" && pass === "Sux9504#"){
-    alert("تم تسجيل الدخول بنجاح");
+    if(user === "83436716" && pass === "Sux9504#"){
+    document.body.innerHTML = `
+    <h1>النتيجة</h1>
+    <h3>مرحباً 83436716</h3>
+    <table border="1" style="margin:auto; direction:rtl;">
+    <tr><th>المادة</th><th>الساعات</th><th>التقدير</th></tr>
+    <tr><td>ميكروبيولوجي</td><td>3</td><td>C</td></tr>
+    <tr><td>فارماكولوجي</td><td>4</td><td>C</td></tr>
+    <tr><td>باتولوجي</td><td>5</td><td>D</td></tr>
+    </table>
+    `;
+}
 }else{
     document.getElementById("message").innerText = "اسم المستخدم أو كلمة المرور غير صحيحة";
 }
