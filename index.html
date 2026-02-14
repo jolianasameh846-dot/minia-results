@@ -1,37 +1,72 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>نتائج الطلاب - جامعة المنيا</title>
+<title>تسجيل الدخول - نتائج طلاب جامعة المنيا</title>
+
 <style>
-body { font-family: Arial; text-align:center; margin:20px; background-color:#f9faff; color:#333; }
-input { padding:8px; margin:5px; width:200px; }
-button { padding:8px 15px; margin-top:5px; }
-#result { margin-top:20px; font-weight:bold; color:green; }
-table { margin:auto; border-collapse: collapse; margin-top:10px; }
-th, td { border:1px solid #ccc; padding:6px 10px; text-align:center; font-size:14px; }
-th { background-color:#d9e7fb; color:#005a9e; }
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+    text-align:center;
+    direction:rtl;
+    margin-top:100px;
+}
+.box{
+    background:white;
+    width:300px;
+    margin:auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+input{
+    width:90%;
+    padding:8px;
+    margin:8px 0;
+}
+button{
+    background:#0077cc;
+    color:white;
+    padding:10px;
+    border:none;
+    width:100%;
+    cursor:pointer;
+}
+button:hover{
+    background:#005fa3;
+}
 </style>
+
 </head>
 <body>
 
-<h1>تسجيل الدخول</h1>
+<div class="box">
+<h2>تسجيل الدخول</h2>
 
-<input type="text" id="username" placeholder="اسم المستخدم"><br>
-<input type="password" id="password" placeholder="كلمة المرور"><br>
+<input type="text" id="username" placeholder="اسم المستخدم">
+<input type="password" id="password" placeholder="كلمة المرور">
+
 <button onclick="login()">دخول</button>
 
-<div id="result"></div>
+<p id="message" style="color:red;"></p>
+
+</div>
 
 <script>
-function login() {
-  var user = document.getElementById("username").value;
-  var pass = document.getElementById("password").value;
+function login(){
 
-  // اسم المستخدم وكلمة المرور الجديدين
-  if(user === "83436716" && pass === "Sux9504#") {
-    document.getElementById("result").innerHTML = `
-      مرحباً ${user} <br>
-      <h3>النتيجة:</h3>
+var user = document.getElementById("username").value;
+var pass = document.getElementById("password").value;
 
-      <h2>الأول 202
+if(user === "83436716" && pass === "Sux9504#"){
+    alert("تم تسجيل الدخول بنجاح");
+}else{
+    document.getElementById("message").innerText = "اسم المستخدم أو كلمة المرور غير صحيحة";
+}
+
+}
+</script>
+
+</body>
+</html>
